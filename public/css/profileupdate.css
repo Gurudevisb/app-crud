@@ -1,0 +1,153 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7fc; /* Light background for a clean look */
+    color: #333; /* Dark text color for readability */
+}
+
+/* Container */
+.py-12 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.max-w-7xl {
+    max-width: 85rem; /* Adjusted to give some breathing room on larger screens */
+    margin: 0 auto;
+}
+
+/* Header */
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2d3748; /* Dark gray for the title */
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Card Styling */
+.p-4, .sm\:p-8 {
+    padding: 2rem;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.sm\:rounded-lg {
+    border-radius: 12px;
+}
+
+/* Spacing Between Cards */
+.space-y-6 > * + * {
+    margin-top: 1.75rem;
+}
+
+/* Form Container */
+.max-w-xl {
+    max-width: 36rem;
+    margin: 0 auto;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+input, select, textarea {
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid #d1d5db; /* Light gray border */
+    border-radius: 8px;
+    background-color: #f9fafb; /* Very light gray background */
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #4c51bf; /* Focused border color */
+    outline: none;
+    background-color: #ffffff;
+}
+
+label {
+    font-weight: 600;
+    color: #4a5568;
+}
+
+/* Button Styling */
+button, .btn-submit {
+    padding: 0.75rem 2rem;
+    background-color: #4c51bf; /* Purple-blue button */
+    color: white;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+button:hover, .btn-submit:hover {
+    background-color: #434190; /* Darker shade on hover */
+}
+
+/* Error Styling */
+.error {
+    color: #e53e3e;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+/* Delete User Section */
+.delete-user-section {
+    background-color: #fff3f3;
+    border: 1px solid #fed7d7;
+    border-radius: 8px;
+    padding: 1.75rem;
+    color: #e53e3e; /* Red text */
+    margin-top: 2rem;
+}
+
+.delete-user-section h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.delete-user-section button {
+    background-color: #e53e3e;
+    padding: 1rem 2rem;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.delete-user-section button:hover {
+    background-color: #c53030;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .max-w-xl {
+        max-width: 100%;
+    }
+
+    .space-y-6 > * + * {
+        margin-top: 1.25rem;
+    }
+}

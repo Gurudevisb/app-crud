@@ -1,0 +1,196 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Main Container */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2d3e50;
+    margin-bottom: 30px;
+}
+
+/* Success Message */
+div > div {
+    text-align: center;
+    padding: 15px;
+    background-color: #e0f7fa;
+    border-radius: 5px;
+    color: #00796b;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+/* Total Portfolio Value */
+h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #4caf50;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 40px;
+}
+
+/* Top Performing Stock */
+h3 {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #1976d2;
+    margin-bottom: 20px;
+}
+
+p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Create Stock Button */
+.btn-create {
+    display: block;
+    background-color: #1976d2;
+    color: white;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 25px;
+    margin: 20px auto;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-create:hover {
+    background-color: #1565c0;
+    transform: translateY(-3px);
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 15px 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #1976d2;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+td {
+    font-size: 1rem;
+    color: #444;
+}
+
+tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Distribution Column */
+td:nth-child(6) {
+    color: #388e3c;
+    font-weight: 600;
+}
+
+/* Edit Button */
+.btn-edit {
+    background-color: #ff9800;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    text-decoration: none;
+}
+
+.btn-edit:hover {
+    background-color: #f57c00;
+    transform: scale(1.05);
+}
+
+/* Delete Button */
+.btn-delete {
+    background-color: #e53935;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-delete:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    table {
+        font-size: 0.95rem;
+    }
+
+    th, td {
+        padding: 12px;
+    }
+
+    .btn-create, .btn-edit, .btn-delete {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
