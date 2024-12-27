@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: app-crud
+    env: live
+    branch: main # Your Git branch to deploy (e.g., main or master).
+    region: oregon # Choose a region close to your users.
+    dockerfilePath: Dockerfile # Render uses your Dockerfile for setup.
+    plan: free # Use the free tier.
+    envVars:
+      - key: APP_KEY
+        value:"base64:OEO9H2hAmttUHAoaNOt5eNg6yhH3aTeMSLwIvRse6OE=" # Replace with your actual app key.
+      - key: APP_ENV
+        value: local
+      - key: DB_CONNECTION
+        value: mysql
+      - key: DB_HOST
+        value: 127.0.0.1
+      - key: DB_PORT
+        value: 3306
+      - key: DB_DATABASE
+        value: app-crud
+      - key: DB_USERNAME
+        value:root
+      - key: DB_PASSWORD
+        value: <your-database-password>
