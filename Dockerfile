@@ -35,7 +35,14 @@ RUN php artisan key:generate
 RUN php artisan config:cache
 
 # Expose port 80
-EXPOSE 80
+# EXPOSE 80
+EXPOSE 10000
+
 
 # Start Apache server
 CMD ["apache2-foreground"]
+
+
+# Update Apache config to listen on port 10000
+RUN echo "Listen 10000" >> /etc/apache2/ports.conf
+RUN sed -i 's/80/10000/g' /etc/apache2/sites-available/000-default.conf
