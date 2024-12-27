@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StockController;
-use App\Http\Controllers\DashboardController;
+// use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,6 +20,8 @@ Route::delete('/stock/{stock}/destroy', [StockController::class, 'destroy'])->na
 
    Route::get('/dashboard', [StockController::class, 'dashboard'])->name('dashboard');
  Route::resource('stocks', StockController::class);
+//  Route::get('/stocks/dashboard', [StockController::class, 'dashboard'])->name('stocks.dashboard');
+
 //   Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 // Route::get('/stocks', [StockController::class, 'index'])->name('stocks.index');
 // Route::get('/dashboard/live-data', [DashboardController::class, 'fetchLiveData'])->name('dashboard.liveData');

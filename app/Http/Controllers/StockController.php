@@ -51,7 +51,7 @@ class StockController extends Controller
 
         Stock::create($data);
 
-        return redirect(route('stocks.dashboard'))->with('success', 'Stock Created Successfully');
+        return redirect(route('stocks.index'))->with('success', 'Stock Created Successfully');
     }
 
     public function edit(Stock $stock)
@@ -70,7 +70,7 @@ class StockController extends Controller
 
         $stock->update($data);
 
-        return redirect(route('stocks.dashboard'))->with('success', 'Stock Updated Successfully');
+        return redirect(route('stocks.index'))->with('success', 'Stock Updated Successfully');
     }
 
     public function destroy(Stock $stock)
@@ -80,6 +80,6 @@ class StockController extends Controller
         // Reset the auto-increment counter to the highest ID + 1
         DB::statement("ALTER TABLE stocks AUTO_INCREMENT = 1");
 
-        return redirect(route('stocks.dashboard'))->with('success', 'Stock Deleted Successfully');
+        return redirect(route('stocks.index'))->with('success', 'Stock Deleted Successfully');
     }
 }
