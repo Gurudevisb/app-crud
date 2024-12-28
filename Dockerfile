@@ -24,8 +24,12 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Copy the Laravel project files into the container
 COPY . /var/www/html
 
-# Set the correct permissions for the entire Laravel directory
+# Set the correct permissions for the Laravel directory
 RUN chown -R www-data:www-data /var/www/html
+RUN chmod -R 775 /var/www/html
+
+# Copy the .env.example file to .env
+RUN cp /var/www/html/.env.example /var/www/html/.env
 
 # Run Composer to install Laravel dependencies
 RUN COMPOSER_MEMORY_LIMIT=-1 composer install --no-dev --optimize-autoloader
