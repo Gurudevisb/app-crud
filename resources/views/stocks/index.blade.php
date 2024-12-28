@@ -71,6 +71,14 @@
                             @method('delete')
                             <button type="submit" class="btn btn-delete">Delete</button>
                         </form>
+
+                        <!-- <form action="{{ route('stocks.destroy', $stock) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this stock?')">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+ -->
+
                     </td>
                 </tr>
             @endforeach
