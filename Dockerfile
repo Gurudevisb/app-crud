@@ -35,13 +35,13 @@ RUN cp /var/www/html/.env.example /var/www/html/.env
 RUN COMPOSER_MEMORY_LIMIT=-1 composer install --no-dev --optimize-autoloader
 
 # Configure Apache to listen on port 10000
-RUN echo "Listen 80" >> /etc/apache2/ports.conf
-RUN cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/80-default.conf
-RUN sed -i 's/<VirtualHost \*:80>/<VirtualHost *:80>/' /etc/apache2/sites-available/80-default.conf
+RUN echo "Listen 10000" >> /etc/apache2/ports.conf
+RUN cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/10000-default.conf
+RUN sed -i 's/<VirtualHost \*:80>/<VirtualHost *:10000>/' /etc/apache2/sites-available/10000-default.conf
 RUN a2ensite 10000-default.conf
 
 # Expose port 10000
-EXPOSE 80
+EXPOSE 10000
 
 # Start the container and run Laravel Artisan commands on startup
 CMD ["sh", "-c", "php artisan key:generate && php artisan config:cache && apache2-foreground"]
