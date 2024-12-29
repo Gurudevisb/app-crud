@@ -27,9 +27,11 @@ COPY . /var/www/html
 # Set the correct permissions for the Laravel directory
 RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 775 /var/www/html
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Copy the .env.example file to .env
-RUN cp /var/www/html/.env.example /var/www/html/.env
+# Copy the .env.example file to .env if .env doesn't exist
+RUN [ -f /var/www/html/.env ] || cp /var/www/html/.env.example /var/www/html/.env
 
 # Run Composer to install Laravel dependencies
 RUN COMPOSER_MEMORY_LIMIT=-1 composer install --no-dev --optimize-autoloader
@@ -43,5 +45,5 @@ RUN a2ensite 10000-default.conf
 # Expose port 10000
 EXPOSE 10000
 
-# Start the container and run Laravel Artisan commands on startup
-CMD ["sh", "-c", "php artisan key:generate && php artisan config:cache && apache2-foreground"]
+# Start the container
+CMD ["apache2-foreground"]
