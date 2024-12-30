@@ -4,6 +4,7 @@ FROM php:8.2-apache
 # Set the working directory inside the container
 #WORKDIR /var/www/html
 WORKDIR C:/xampp/htdocs/
+
 # Install necessary system dependencies and PHP extensions for Laravel
 RUN apt-get update && apt-get install -y \
     libpng-dev \
@@ -24,11 +25,14 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Copy the Laravel project files into the container
 COPY . C:/xampp/htdocs/
 
+# Create the necessary directories for Laravel storage and cache if they don't exist
+RUN mkdir -p C:/xampp/htdocs/storage C:/xampp/htdocs/bootstrap/cache
+
 # Set the correct permissions for the Laravel directory
 RUN chown -R www-data:www-data C:/xampp/htdocs/
 RUN chmod -R 775 C:/xampp/htdocs/
-RUN chown -R www-data:www-data C:/xampp/htdocs/ storage C:/xampp/htdocs/bootstrap/cache
-RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chown -R www-data:www-data C:/xampp/htdocs/storage C:/xampp/htdocs/bootstrap/cache
+RUN chmod -R 775 C:/xampp/htdocs/storage C:/xampp/htdocs/bootstrap/cache
 
 # Copy the .env.example file to .env if .env doesn't exist
 RUN [ -f C:/xampp/htdocs/.env ] || cp C:/xampp/htdocs/.env.example C:/xampp/htdocs/.env
