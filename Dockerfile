@@ -2,7 +2,7 @@
 FROM php:8.2-apache
 
 # Set the working directory inside the container
-WORKDIR /var/www/html
+WORKDIR /var/www/app-crud
 
 # Install necessary system dependencies and PHP extensions for Laravel
 RUN apt-get update && apt-get install -y \
@@ -22,16 +22,16 @@ RUN a2enmod rewrite
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Copy the Laravel project files into the container
-COPY . /var/www/html
+COPY . /var/www/app-crud
 
 # Set the correct permissions for the Laravel directory
-RUN chown -R www-data:www-data /var/www/html
-RUN chmod -R 775 /var/www/html
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
-RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chown -R www-data:www-data /var/www/app-crud
+RUN chmod -R 775 /var/www/app-crud
+RUN chown -R www-data:www-data /var/www/app-crud/storage /var/www/app-crud/bootstrap/cache
+RUN chmod -R 775 /var/www/app-crud/storage /var/www/app-crud/bootstrap/cache
 
 # Copy the .env.example file to .env if .env doesn't exist
-RUN [ -f /var/www/html/.env ] || cp /var/www/html/.env.example /var/www/html/.env
+RUN [ -f /var/www/app-crud/.env ] || cp /var/www/app-crud/.env.example /var/www/app-crud/.env
 
 # Run Composer to install Laravel dependencies
 RUN COMPOSER_MEMORY_LIMIT=-1 composer install --no-dev --optimize-autoloader
