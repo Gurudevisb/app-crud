@@ -36,14 +36,11 @@ RUN [ -f /var/www/app-crud/.env ] || cp /var/www/app-crud/.env.example /var/www/
 # Run Composer to install Laravel dependencies
 RUN COMPOSER_MEMORY_LIMIT=-1 composer install --no-dev --optimize-autoloader
 
-# Configure Apache to listen on port 10000
-RUN echo "Listen 10000" >> /etc/apache2/ports.conf
-RUN cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/10000-default.conf
-RUN sed -i 's/<VirtualHost \*:80>/<VirtualHost *:10000>/' /etc/apache2/sites-available/10000-default.conf
-RUN a2ensite 10000-default.conf
+# Ensure the default virtual host listens on port 80 and points to the Laravel public directory
+RUN sed -i 's|/var/www/html|/var/www/app-crud/public|' /etc/apache2/sites-available/000-default.conf
 
-# Expose port 10000
-EXPOSE 10000
+# Expose port 80 (standard HTTP port)
+EXPOSE 80
 
 # Start the container
 CMD ["apache2-foreground"]
