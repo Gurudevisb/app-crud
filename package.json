@@ -1,6 +1,10 @@
 {
+  "name": "app-crud",
   "scripts": {
     "build": "vite build",
     "start": "vite preview"
+  },
+  "dependencies": {
+    "vite": "^4.0.0"
   }
 }
